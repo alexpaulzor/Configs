@@ -56,3 +56,5 @@ if [ -d "${HOME}/.zsh" ] ; then
 		. "${HOME}/.zsh/${file}"
 	done
 fi
+
+source ~/.internconf
