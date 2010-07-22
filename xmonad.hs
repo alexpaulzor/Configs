@@ -13,18 +13,12 @@ import XMonad.Hooks.ManageDocks
 
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeysP)
-import XMonad.Util.Scratchpad
 
 import XMonad.Prompt
 import XMonad.Prompt.Shell(shellPrompt)
 import XMonad.Prompt.Window
 
 import System.IO(hPutStrLn)
-
--- Things that should always float
-myFloatHook = composeAll [
-	className =? "qemu" --> doFloat
-	]
 
 myLayoutHook = tiled ||| Mirror tiled ||| Grid ||| simpleTabbed
 	where
@@ -49,6 +43,8 @@ main = do
 				{ ppOutput = hPutStrLn xmproc
 				, ppUrgent = xmobarColor "#cc0000" "" . wrap "**" "**"
 				, ppTitle  = xmobarColor "#8AE234" ""
+				, borderWidth = 2
+				, focusFollowsMouse = False
 				}
 			}
 			`additionalKeysP`
@@ -56,7 +52,6 @@ main = do
 			, ("M-S-a", windowPromptGoto defaultXPConfig { position = Top })
 			, ("M-a", windowPromptBring defaultXPConfig { position = Top })
 			, ("M-x", sendMessage ToggleStruts)
-			, ("M-S-l", spawn "~/bin/lock")
 			, ("M-<Left>", moveTo Prev HiddenNonEmptyWS)
 			, ("M-S-<Left>", shiftToPrev)
 			, ("M-<Right>", moveTo Next HiddenNonEmptyWS)
@@ -68,5 +63,4 @@ main = do
 			, ("M-`", toggleWS)
 			, ("M-s", moveTo Next EmptyWS)
 			, ("M-S-s", shiftTo Next EmptyWS)
-			, ("M-g", scratchpadSpawnAction defaultConfig)
 			]
