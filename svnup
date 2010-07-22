@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Checks out SVN externals in parallel for a massive
+# speed boost.
+# A plain 'svn up' must still be run when there are
+# new externals to pull in.
+#
+
+echo "updating repo"
+echo "svn up --ignore-externals"
+svn up --ignore-externals
+
+echo "updating externals in parallel"
+while read dir rev url ; do
+  [ -z "$dir" ] && continue # skip blank lines
+  [ "$dir" != "${dir#'#'}" ] && continue # skip commented lines
+
+  echo "cd $dir ; svn up $rev"
+  pushd "$dir" &>/dev/null
+  if [ $url ]; then
+    svn up "$rev" &
+  else
+    svn up &
+  fi
+  popd &>/dev/null
+done < <(svn pg svn:externals)
+
+wait

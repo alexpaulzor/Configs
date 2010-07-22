@@ -1,0 +1,5 @@
+alias hadoop="/usr/lib/hadoop-0.20/bin/hadoop"
+alias hdfs='hadoop dfs'
+
+export JARS_TEST_HOME=~/svn/jars/test
+export CLASSPATH=~/svn/jars/dev:$JARS_TEST_HOME:$CLASSPATH
