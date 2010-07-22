@@ -73,7 +73,8 @@ my %links = (
 	'xmonad.hs' => '.xmonad/xmonad.hs',
 
 	gitconfig => '.gitconfig',
-	irbrc => '.irbrc'
+	irbrc => '.irbrc',
+	mkit => 'bin/mkit'
 );
 
 my $i = 0; # Keep track of how many links we added
