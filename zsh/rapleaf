@@ -1,6 +1,8 @@
 alias hadoop="/usr/lib/hadoop-0.20/bin/hadoop"
 alias hdfs='hadoop dfs'
 
+export svn="https://svn.vpn.rapleaf.com/main"
 export JARS_TEST_HOME=~/svn/jars/test
 export JARS_HOME=~/svn/jars/dev
 export CLASSPATH=$JARS_HOME:$JARS_TEST_HOME:$CLASSPATH
+export PATH=$PATH:/usr/local/bin

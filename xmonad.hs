@@ -37,15 +37,15 @@ myLayoutHook = tiled ||| Mirror tiled ||| Grid ||| simpleTabbed
 main = do
 	xmproc <- spawnPipe "xmobar"
 	xmonad $ defaultConfig
-			{ manageHook = manageDocks <+> myFloatHook <+> manageHook defaultConfig <+> scratchpadManageHook (W.RationalRect 0.25 0.25 0.5 0.5)
+			{ manageHook = manageDocks <+> manageHook defaultConfig
 			, layoutHook = avoidStruts $ smartBorders $ myLayoutHook
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
 				, ppUrgent = xmobarColor "#cc0000" "" . wrap "**" "**"
 				, ppTitle  = xmobarColor "#8AE234" ""
-				, borderWidth = 2
-				, focusFollowsMouse = False
 				}
+			, borderWidth = 2
+			, focusFollowsMouse = False
 			}
 			`additionalKeysP`
 			[ ("M-p", shellPrompt defaultXPConfig { position = Top })
