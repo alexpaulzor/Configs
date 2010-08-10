@@ -1,0 +1,9 @@
+#!/bin/zsh
+if [ -z "$1" -o -z "$2" -o "$1" = "-h" -o "$1" = "--help" ]; then
+  echo "USAGE: $0 <file> <linenum>"
+  echo " = delete line <linenum> from <file>"
+  exit
+fi
+tmpfile=`mktemp`
+sed -e "$2d" < $1 > $tmpfile
+mv $tmpfile $1

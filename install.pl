@@ -75,7 +75,8 @@ my %links = (
 	gitconfig => '.gitconfig',
 	irbrc => '.irbrc',
 	mkit => 'bin/mkit',
-	svnup => 'bin/svnup'
+	svnup => 'bin/svnup',
+	nukeline => 'bin/nukeline'
 );
 
 my $i = 0; # Keep track of how many links we added
