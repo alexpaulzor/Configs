@@ -63,4 +63,6 @@ main = do
 			, ("M-`", toggleWS)
 			, ("M-s", moveTo Next EmptyWS)
 			, ("M-S-s", shiftTo Next EmptyWS)
+			, ("M-v", spawn "xdotool keyup alt; xclip -o -selection clipboard | xclip -i -selection primary; xdotool click 2")
+			, ("M-c", spawn "xclip -o -selection primary | xclip -i -selection clipboard")
 			]
