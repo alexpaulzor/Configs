@@ -15,8 +15,8 @@ endif
 
 " ---- General Setup ----
 set nocompatible           " Don't emulate vi's limitations
-set tabstop=2              " 4 spaces for tabs
-set shiftwidth=2           " 4 spaces for indents
+set tabstop=4              " 4 spaces for tabs
+set shiftwidth=4           " 4 spaces for indents
 set smarttab               " Tab next line based on current line
 set expandtab              " Spaces for indentation
 set autoindent             " Automatically indent next line
