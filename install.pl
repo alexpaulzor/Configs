@@ -74,7 +74,6 @@ my %links = (
 
 	gitconfig => '.gitconfig',
 	irbrc => '.irbrc',
-	mkit => 'bin/mkit',
 	svnup => 'bin/svnup',
 	nukeline => 'bin/nukeline'
 );
