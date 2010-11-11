@@ -3,6 +3,7 @@
 	st = status
 	co = checkout
 	di = diff --color-words
+	br = branch
 	move   = mv
 	ren    = mv
 	rename = mv
@@ -22,6 +23,7 @@
 	ls   = show
 
 	untrack-ignored = !git-untracked-ignored
+	info = !git-info
 	amend = commit --amend -C HEAD
 [color]
 	diff = auto
@@ -29,6 +31,7 @@
 	branch = auto
 [core]
 	pager =
+	excludesfile = ~/.gitignore
 [push]
 	default = matching
 [user]

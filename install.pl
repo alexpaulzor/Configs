@@ -44,6 +44,7 @@ my %links = (
 
 	vim      => '.vim',
 	vimrc    => '.vimrc',
+	_vimrc   => '_vimrc',
 	gvimrc   => '.gvimrc',
 
 	commonsh => '.commonsh',
@@ -75,8 +76,28 @@ my %links = (
 	gitconfig => '.gitconfig',
 	irbrc => '.irbrc',
 	svnup => 'bin/svnup',
-	nukeline => 'bin/nukeline'
+	nukeline => 'bin/nukeline',
+	gitignore => '.gitignore',
+
+	'git-info'            => 'bin/git-info',
+	'git-untrack-ignored' => 'bin/git-untracked-ignored'
 );
+
+my $contained = (substr $scriptdir, 0, length($home)) eq $home;
+my $prefix = undef;
+if ($contained) {
+	$prefix = substr $scriptdir, length($home);
+	($prefix) = $prefix =~ m{^\/? (.+) [^/]+ $}x;
+}
+
+chomp(my $uname = `uname -s`);
+`cc answerback.c -o answerback.$uname`;
+if ($? != 0) {
+	warn "Could not compile answerback.\n";
+} else {
+	$links{"answerback.$uname"} = "bin/answerback.$uname";
+}
+
 
 my $i = 0; # Keep track of how many links we added
 for my $file (keys %links) {
@@ -98,6 +119,15 @@ for my $file (keys %links) {
 		rmtree($dest) || warn "Couldn't rmtree '$dest': $!\n";
 	} elsif($force) {
 		unlink($dest) || warn "Couldn't unlink '$dest': $!\n";
+	}
+
+	if ($contained) {
+		chdir $home;
+		$dest = "$links{$file}";
+		$src = "$prefix$file";
+		if ($path) {
+			$src = "../$src";
+		}
 	}
 
 	symlink($src => $dest) ? $i++ : warn "Couldn't link '$src' to '$dest': $!\n";

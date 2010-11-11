@@ -1,0 +1,5 @@
+# keybindings
+bindkey -d
+bindkey -v
+
+bindkey ' ' magic-space
