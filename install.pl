@@ -81,7 +81,8 @@ my %links = (
 	k5login => ".k5login",
 	gitignore => '.gitignore',
 	'git-info'            => 'bin/git-info',
-	'git-untrack-ignored' => 'bin/git-untracked-ignored'
+	'git-untrack-ignored' => 'bin/git-untracked-ignored',
+	findbig => 'bin/findbig'
 );
 
 my $contained = (substr $scriptdir, 0, length($home)) eq $home;

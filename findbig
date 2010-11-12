@@ -1,0 +1,41 @@
+#!/bin/zsh
+
+# USAGE: findbig <threshold> [root = /]
+
+numbytes=`echo "$1" | grep -o '^[0-9.]*'`
+if [[ "$1" =~ [0-9]G ]]; then
+    (( numbytes = numbytes * 1024 * 1024 * 1024 ))
+elif [[ "$1" =~ [0-9]M ]]; then
+    (( numbytes = numbytes * 1024 * 1024 ))
+elif [[ "$1" =~ [0-9][kK] ]]; then
+    (( numbytes = numbytes * 1024 ))
+fi
+
+_findbig()
+{
+    if [[ "$1" == "/sys" || "$1" == "/proc" || "$1" == "/dev" ]]; then
+        return
+    fi
+    du -sb $1/* 2> /dev/null | 
+        while read line; do
+            size=`echo $line | egrep -o '^[0-9]+'`
+            if [[ "$size" -ge "$2" ]]; then
+                folder=`echo $line | cut -f 2`
+                du -sh "$folder" 2> /dev/null
+                if [[ -d "$folder" ]]; then
+                    _findbig "$folder" "$2"
+                fi
+            fi
+        done
+}
+
+root="$2"
+
+if [[ "$root" =~ /.*[/]$/ ]]; then
+    root=`echo $root | grep -o '.*[^/]'`
+fi
+
+echo Scanning $root for values bigger than $numbytes
+
+_findbig "$root" "$numbytes"
+        
