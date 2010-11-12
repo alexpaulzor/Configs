@@ -41,11 +41,12 @@ main = do
 			, layoutHook = avoidStruts $ smartBorders $ myLayoutHook
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
-				, ppUrgent = xmobarColor "#cc0000" "" . wrap "**" "**"
+				, ppUrgent = xmobarColor "#CC0000" "" . wrap "**" "**"
 				, ppTitle  = xmobarColor "#8AE234" ""
 				}
 			, borderWidth = 2
 			, focusFollowsMouse = False
+			, terminal = "xterm"
 			}
 			`additionalKeysP`
 			[ ("M-p", shellPrompt defaultXPConfig { position = Top })
@@ -54,7 +55,6 @@ main = do
 			, ("M-x", sendMessage ToggleStruts)
 			, ("M-<Left>", moveTo Prev HiddenNonEmptyWS)
 			, ("M-S-<Left>", shiftToPrev)
-			, ("M-<Right>", moveTo Next HiddenNonEmptyWS)
 			, ("M-S-<Right>", shiftToNext)
 			, ("M-<Up>", windows W.focusUp)
 			, ("M-S-<Up>", windows W.swapUp)
@@ -63,6 +63,4 @@ main = do
 			, ("M-`", toggleWS)
 			, ("M-s", moveTo Next EmptyWS)
 			, ("M-S-s", shiftTo Next EmptyWS)
-			, ("M-v", spawn "xdotool keyup alt; xclip -o -selection clipboard | xclip -i -selection primary; xdotool click 2")
-			, ("M-c", spawn "xclip -o -selection primary | xclip -i -selection clipboard")
 			]
