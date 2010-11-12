@@ -76,7 +76,9 @@ my %links = (
 	irbrc => '.irbrc',
 	mkit => 'bin/mkit',
 	svnup => 'bin/svnup',
-	nukeline => 'bin/nukeline'
+	nukeline => 'bin/nukeline',
+	sshconfig => ".ssh/config",
+	k5login => ".k5login"
 );
 
 my $i = 0; # Keep track of how many links we added
