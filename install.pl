@@ -81,7 +81,8 @@ my %links = (
 	gitignore => '.gitignore',
 	'git-info'            => 'bin/git-info',
 	'git-untrack-ignored' => 'bin/git-untracked-ignored',
-	findbig => 'bin/findbig'
+	findbig => 'bin/findbig',
+	xinitrc => '.xinitrc'
 );
 
 my $contained = (substr $scriptdir, 0, length($home)) eq $home;
