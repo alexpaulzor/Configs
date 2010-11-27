@@ -1,14 +1,15 @@
 #!/bin/zsh
 
-# USAGE: findbig <threshold> [root = /]
+# USAGE: findbig <threshold> [root = .]
 
 numbytes=`echo "$1" | grep -o '^[0-9.]*'`
-if [[ "$1" =~ [0-9]G ]]; then
-    (( numbytes = numbytes * 1024 * 1024 * 1024 ))
-elif [[ "$1" =~ [0-9]M ]]; then
+if [[ "$1" =~ [0-9][gG][bB]? ]]; then
     (( numbytes = numbytes * 1024 * 1024 ))
-elif [[ "$1" =~ [0-9][kK] ]]; then
+elif [[ "$1" =~ [0-9][mM][bB]? ]]; then
     (( numbytes = numbytes * 1024 ))
+elif [[ "$1" =~ [0-9][bB]? ]]; then
+    # bytes
+    (( numbytes = numbytes / 1024 ))
 fi
 
 _findbig()
@@ -16,7 +17,8 @@ _findbig()
     if [[ "$1" == "/sys" || "$1" == "/proc" || "$1" == "/dev" ]]; then
         return
     fi
-    du -sb $1/* 2> /dev/null | 
+    echo "Recursing into $1" >&2
+    du -s -k $1/* 2> /dev/null | 
         while read line; do
             size=`echo $line | egrep -o '^[0-9]+'`
             if [[ "$size" -ge "$2" ]]; then
@@ -28,8 +30,11 @@ _findbig()
             fi
         done
 }
-
-root="$2"
+if [ -n "$2" ]; then
+    root="$2"
+else
+    root=`pwd`
+fi
 
 if [[ "$root" =~ /.*[/]$/ ]]; then
     root=`echo $root | grep -o '.*[^/]'`
