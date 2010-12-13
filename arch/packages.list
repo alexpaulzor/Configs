@@ -116,8 +116,11 @@ nmap
 xmonad-contrib
 rar
 wireless_tools
-wicd
 xfce4
 openssh
 xclip
 ttf-ms-fonts
+aurvote
+pacman-contrib
+pactools
+pacman-color

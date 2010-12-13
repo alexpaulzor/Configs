@@ -3,12 +3,16 @@
 # install.pl
 # script to create symlinks from the checkout of davesdots to the home directory
 
+
 use strict;
 use warnings;
 
 use File::Path qw(mkpath rmtree);
 use File::Glob ':glob';
 use Cwd 'cwd';
+
+# For aurvote
+my $auruser = "alexpaulzor";
 
 my $scriptdir = cwd() . '/' . $0;
 $scriptdir    =~ s{/ [^/]+ $}{}x;
@@ -37,52 +41,33 @@ unless(eval {symlink('', ''); 1;}) {
 }
 
 my %links = (
-	screenrc   => '.screenrc',
-	toprc      => '.toprc',
-	dir_colors => '.dir_colors',
-	lessfilter => '.lessfilter',
-
-	vim      => '.vim',
-	vimrc    => '.vimrc',
-	gvimrc   => '.gvimrc',
-
-	commonsh => '.commonsh',
-
-	inputrc  => '.inputrc',
-
-	bash          => '.bash',
-	bashrc        => '.bashrc',
-	bash_profile  => '.bash_profile',
-
-	zsh      => '.zsh',
-	zshrc    => '.zshrc',
-
-	ksh      => '.ksh',
-	kshrc    => '.kshrc',
-	mkshrc   => '.mkshrc',
-
-	shinit  => '.shinit',
-
-	Xdefaults  => '.Xdefaults',
-	Xresources => '.Xresources',
-
-	'uncrustify.cfg' => '.uncrustify.cfg',
-	'indent.pro'     => '.indent.pro',
-
-	xmobarrc    => '.xmobarrc',
+	'bin/findbig' => 'bin/findbig',
+	'bin/git-info' => 'bin/git-info',
+	'bin/nukeline' => 'bin/nukeline',
+	'bin/svnup' => 'bin/svnup',
 	'xmonad.hs' => '.xmonad/xmonad.hs',
-
+	bash => '.bash',
+	bash_profile => '.bash_profile',
+	bashrc => '.bashrc',
+	commonsh => '.commonsh',
+	dir_colors => '.dir_colors',
 	gitconfig => '.gitconfig',
-	irbrc => '.irbrc',
-	svnup => 'bin/svnup',
-	nukeline => 'bin/nukeline',
-	sshconfig => ".ssh/config",
-	k5login => ".k5login",
 	gitignore => '.gitignore',
-	'git-info'            => 'bin/git-info',
-	'git-untrack-ignored' => 'bin/git-untracked-ignored',
-	findbig => 'bin/findbig',
-	xinitrc => '.xinitrc'
+	inputrc => '.inputrc',
+	irbrc => '.irbrc',
+	lessfilter => '.lessfilter',
+	mkshrc => '.mkshrc',
+	screenrc => '.screenrc',
+	shinit => '.shinit',
+	sshconfig => ".ssh/config",
+	vim => '.vim',
+	vimrc => '.vimrc',
+	Xdefaults => '.Xdefaults',
+	xinitrc => '.xinitrc',
+	xmobarrc => '.xmobarrc',
+	Xresources => '.Xresources',
+	zsh => '.zsh',
+	zshrc => '.zshrc'
 );
 
 my $contained = (substr $scriptdir, 0, length($home)) eq $home;
@@ -129,3 +114,15 @@ for my $file (keys %links) {
 print "$i link";
 print 's' if $i != 1;
 print " created\n";
+
+#### AUR VOTE ####
+if (! (-e "$home/.config/aurvote")) {
+	print "Enter aur password for user $auruser:";
+	my $aurpass = <STDIN>;
+	chomp($aurpass);
+	mkpath("$home/.config");
+	open(my $aurvote, ">", "$home/.config/aurvote");
+	print $aurvote "user=$auruser\n";
+	print $aurvote "pass=$aurpass";
+	close($aurvote);
+}

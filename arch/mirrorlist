@@ -242,7 +242,7 @@
 
 # United States
 #Server = ftp://mirror.cs.vt.edu/pub/ArchLinux/$repo/os/x86_64
-Server = http://mirror.cs.vt.edu/pub/ArchLinux/$repo/os/x86_64
+#Server = http://mirror.cs.vt.edu/pub/ArchLinux/$repo/os/x86_64
 #Server = ftp://mirrors.easynews.com/linux/archlinux/$repo/os/x86_64
 #Server = http://mirrors.easynews.com/linux/archlinux/$repo/os/x86_64
 #Server = ftp://ftp.archlinux.org/$repo/os/x86_64
@@ -256,7 +256,7 @@ Server = http://mirror.cs.vt.edu/pub/ArchLinux/$repo/os/x86_64
 #Server = http://archlinux.linuxfreedom.com/$repo/os/x86_64
 #Server = ftp://locke.suu.edu/linux/dist/archlinux/$repo/os/x86_64
 #Server = ftp://lug.mtu.edu/archlinux/ftpfull/$repo/os/x86_64
-#Server = http://lug.mtu.edu/archlinux/ftpfull/$repo/os/x86_64
+Server = http://lug.mtu.edu/archlinux/ftpfull/$repo/os/x86_64
 #Server = ftp://mirrors.xmission.com/archlinux/$repo/os/x86_64
 #Server = http://mirrors.xmission.com/archlinux/$repo/os/x86_64
 #Server = ftp://mirror.rit.edu/archlinux/$repo/os/x86_64
