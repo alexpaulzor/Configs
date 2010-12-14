@@ -17,8 +17,12 @@ import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Prompt
 import XMonad.Prompt.Shell(shellPrompt)
 import XMonad.Prompt.Window
+import XMonad.Hooks.ManageHelpers
 
 import System.IO(hPutStrLn)
+
+myManageHook = composeAll
+	[ className =? "exe" 		--> doFullFloat ]
 
 myLayoutHook = tiled ||| Mirror tiled ||| Grid ||| simpleTabbed
 	where
@@ -37,7 +41,7 @@ myLayoutHook = tiled ||| Mirror tiled ||| Grid ||| simpleTabbed
 main = do
 	xmproc <- spawnPipe "xmobar"
 	xmonad $ defaultConfig
-			{ manageHook = manageDocks <+> manageHook defaultConfig
+			{ manageHook = manageDocks <+> myManageHook
 			, layoutHook = avoidStruts $ smartBorders $ myLayoutHook
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
@@ -63,4 +67,5 @@ main = do
 			, ("M-`", toggleWS)
 			, ("M-s", moveTo Next EmptyWS)
 			, ("M-S-s", shiftTo Next EmptyWS)
+			, ("M-S-l", spawn "xscreensaver-command -lock")
 			]

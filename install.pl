@@ -114,15 +114,3 @@ for my $file (keys %links) {
 print "$i link";
 print 's' if $i != 1;
 print " created\n";
-
-#### AUR VOTE ####
-if (! (-e "$home/.config/aurvote")) {
-	print "Enter aur password for user $auruser:";
-	my $aurpass = <STDIN>;
-	chomp($aurpass);
-	mkpath("$home/.config");
-	open(my $aurvote, ">", "$home/.config/aurvote");
-	print $aurvote "user=$auruser\n";
-	print $aurvote "pass=$aurpass";
-	close($aurvote);
-}
