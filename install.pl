@@ -44,6 +44,7 @@ my %links = (
 	'bin/findbig' => 'bin/findbig',
 	'bin/git-info' => 'bin/git-info',
 	'bin/nukeline' => 'bin/nukeline',
+	'bin/mail.sh' => 'bin/mail.sh',
 	'bin/svnup' => 'bin/svnup',
 	'xmonad.hs' => '.xmonad/xmonad.hs',
 	bash => '.bash',
@@ -114,3 +115,23 @@ for my $file (keys %links) {
 print "$i link";
 print 's' if $i != 1;
 print " created\n";
+
+my($dest) = "$home/.mailconf";
+
+if ($force || ! -e $dest)
+{
+	open(MAILCONF, ">$dest") or die $!;
+	print "Enter gmail username [blank to be done]:";
+	my $username = <STDIN>;
+	chomp($username);
+	print "Enter gmail password for $username:";
+	my $pw = <STDIN>;
+	chomp($pw);
+	print MAILCONF "gmail_login=\"$username\"\n";
+	print MAILCONF "gmail_password=\"$pw\"\n";
+	close MAILCONF;
+}
+
+
+
+
