@@ -13,7 +13,8 @@ alias ll='ls -lh'
 alias svnstm='svn st | grep -v "^X" | grep -v "^Perf" | grep -v "^\?" | uniq'
 alias svnst='svn st --ignore-externals | grep -v "^X"'
 alias rgrep='grep -R -n --exclude=*.swp --exclude-dir=.svn'
-alias .....='cd ../../../.."
-alias ....='cd ../../.."
-alias ...='cd ../.."
+alias ......='cd ../../../../..'
+alias .....='cd ../../../..'
+alias ....='cd ../../..'
+alias ...='cd ../..'
 alias ..='cd ..'
