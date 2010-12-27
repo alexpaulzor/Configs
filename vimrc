@@ -3,18 +3,6 @@
 " Original author: Saleem Abdulrasool <compnerd@compnerd.org>
 " vim: set ts=3 sw=3 et nowrap:
 
-if has('multi_byte')      " Make sure we have unicode support
-   scriptencoding utf-8    " This file is in UTF-8
-
-   " ---- Terminal Setup ----
-   if ($ANSWERBACK !=# "PuTTY")
-      if (&termencoding == "" && (&term =~ "xterm" || &term =~ "putty")) || (&term =~ "rxvt-unicode") || (&term =~ "screen")
-         set termencoding=utf-8
-      endif
-   endif
-   set encoding=utf-8      " Default encoding should always be UTF-8
-endif
-
 " ---- General Setup ----
 set nocompatible           " Don't emulate vi's limitations
 set tabstop=4              " 4 spaces for tabs
@@ -214,31 +202,6 @@ if has('eval')
    nmap <C-]> :call GoDefinition()<CR>
 endif
 
-if has('autocmd')
-   " Shortcuts
-   if has('eval')
-      fun! <SID>cabbrev()
-         iab #i #include
-         iab #I #include
-
-         iab #d #define
-         iab #D #define
-
-         iab #e #endif
-         iab #E #endif
-      endfun
-
-      autocmd FileType c,cpp :call <SID>cabbrev()
-
-      autocmd BufRead,BufNewFile *.mm set filetype=noweb
-      autocmd BufRead,BufNewFile *.scala set filetype=scala
-      autocmd BufRead,BufNewFile *.proto setfiletype proto
-   endif
-
-   " make tab reindent in normal mode
-   autocmd FileType c,cpp,cs,java nmap <Tab> =0<CR>
-endif
-
 " Append modeline after last line in buffer.
 " Use substitute() (not printf()) to handle '%%s' modeline in LaTeX files.
 if has('eval')
@@ -282,31 +245,6 @@ endif
 
 " just continue
 nmap K K<cr>
-
-" stolen from auctex.vim
-if has('eval')
-   fun! EmacsKill()
-      if col(".") == strlen(getline(line(".")))+1
-         let @" = "\<CR>"
-         return "\<Del>"
-      else
-         return "\<C-O>D"
-      endif
-   endfun
-endif
-
-" some emacs-isms are OK
-map! <C-a> <Home>
-map  <C-a> <Home>
-map! <C-e> <End>
-map  <C-e> <End>
-imap <C-f> <Right>
-imap <C-b> <Left>
-map! <M-BS> <C-w>
-map  <C-k> d$
-if has('eval')
-   inoremap <buffer> <C-K> <C-R>=EmacsKill()<CR>
-endif
 
 " w!! for sudo w!
 cmap w!! w !sudo tee % >/dev/null
@@ -365,25 +303,6 @@ endif
 if has('eval')
    let python_highlight_all = 1
    let python_slow_sync = 1
-endif
-
-" ---- OmniCpp ----
-if v:version >= 700
-   if has('autocmd')
-      autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-   endif
-
-   set completeopt=menu,menuone,longest
-
-   let OmniCpp_MayCompleteDot = 1 " autocomplete with .
-   let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
-   let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
-   let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
-   let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
-   let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype (i.e. parameters) in popup window
-   map <C-F12> :!$HOME/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
-   " add current directory's generated tags file to available tags
-   set tags+=./tags
 endif
 
 set t_RV=
