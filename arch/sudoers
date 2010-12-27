@@ -19,7 +19,7 @@
 
 # User privilege specification
 root	ALL=NOPASSWD: ALL
-alex    ALL=NOPASSWD: ALL
+apaul    ALL=NOPASSWD: ALL
 
 # Uncomment to allow people in group wheel to run all commands
 # %wheel	ALL=(ALL) ALL
