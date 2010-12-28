@@ -11,10 +11,9 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                     , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%a %b %_d %Y %I:%M:%S %p" "date" 10
-                    , Run Com "sh" ["~/bin/mail.sh"] "mail" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% | %cpu%; %memory% * %swap% | %eth0%; %wlan0% | %battery% }{ %mail% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader% | %cpu%; %memory% * %swap% | %eth0%; %wlan0% | %battery% }{ <fc=#ee9a00>%date%</fc>"
        }

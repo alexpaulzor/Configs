@@ -32,11 +32,6 @@ installfile "$here/mirrorlist" "/etc/pacman.d/mirrorlist"
 installfile "$here/pacman.conf" "/etc/pacman.conf" 
 installfile "$here/rc.conf" "/etc/rc.conf" 
 
-installfile "$here/sudoers" "/etc/sudoers" &&
-chown root /etc/sudoers &&
-chgrp root /etc/sudoers &&
-chmod 440 /etc/sudoers
-
 pacman -Syu
 pacman -S --needed yaourt
 installfile "$here/yaourtrc" "/etc/yaourtrc" 
