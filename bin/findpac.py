@@ -73,16 +73,24 @@ def main():
     i = 0
     target = None
     description = []
+    expsrc = r"^" + r"(?P<section>\S+)" + r"/" + 
+        r"(?P<name>\S+)" + r"\s*" +
+        r"(?P<version>\S+)" + r"\s*" +
+        r"(?P<group>\([^)]+\))?" + r"\s*" +
+        r"(?P<installed>\[installed\])?" + r"\s*" +
+        r"(?P<obsolete>\(Out of Date\))?" + r"\s*" +
+        r"(?P<vote>\(\d+\))?" + r"$"
+    linexp = re.compile(expsrc)
     for line in output.splitlines():
-        m = re.match(r"^(\S+)/(\S+)\s+(\S+)\s*(\[installed\])?\s*(\(Out of Date\))?\s*\(?(\d+)?\)?.*$", line)
-        if m:
+        matches = lineexp.match(line)
+        if matches:
+            groups = list(matches.groups())
             if target is not None:
                 target.description = description
                 description = []
                 if target.section not in sections:
                     sections[target.section] = []
                 sections[target.section].append(target)
-            groups = list(m.groups())
             target = Target(groups[1], groups[0], groups[2])
             for j in range(3, len(groups)):
                 if groups[j] == "[installed]":

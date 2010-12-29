@@ -30,7 +30,10 @@ installfile()
 installfile "$here/inittab" "/etc/inittab" 
 installfile "$here/mirrorlist" "/etc/pacman.d/mirrorlist" 
 installfile "$here/pacman.conf" "/etc/pacman.conf" 
+tfile=`mktemp`
+#TODO: ask for hostname
 installfile "$here/rc.conf" "/etc/rc.conf" 
+#TODO: ask for aurvote un/pw, create ~/.config/aurvote
 
 pacman -Syu
 pacman -S --needed yaourt

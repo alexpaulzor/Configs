@@ -11,6 +11,7 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                     , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%a %b %_d %Y %I:%M:%S %p" "date" 10
+                    
                     , Run StdinReader
                     ]
        , sepChar = "%"

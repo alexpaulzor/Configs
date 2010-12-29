@@ -3,6 +3,8 @@
 # install.pl
 # script to create symlinks from the checkout of davesdots to the home directory
 
+#TODO: ask un/pw for gmail in xmobarrc
+
 
 use strict;
 use warnings;
@@ -114,4 +116,5 @@ for my $file (keys %links) {
 print "$i link";
 print 's' if $i != 1;
 print " created\n";
+
 
