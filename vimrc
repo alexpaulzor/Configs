@@ -29,7 +29,7 @@ set scrolloff=3            " Show 3 lines of context during scrolls
 set sidescrolloff=2        " Show 2 columns of context during scrolls
 set backspace=2            " Normal backspace behavior
 "set textwidth=80           " Break lines at 80 characters
-#set hidden                 " Allow flipping of buffers without saving
+"set hidden                 " Allow flipping of buffers without saving
 set noerrorbells           " Disable error bells
 set visualbell             " Turn visual bell on
 set t_vb=                  " Make the visual bell emit nothing
