@@ -92,10 +92,33 @@ if command -v ack-grep >/dev/null 2>&1 ; then
 fi
 
 alias rm='rm -ir'
-
 alias df='df -h'
 alias du='du -h'
-
 alias ping='ping -c4'
+alias cp='cp -ir'
+alias mv='mv -p'
+alias rm='rm -ir'
+alias mkdir='mkdir'
+alias :q='exit'
+alias :wq='exit'
+alias inst='sudo yaourt -S'
+alias xmoconf='vim ~/.xmonad/xmonad.hs'
+alias lsd='ls -l | grep "^d"'
+alias rezsh='source ~/.zshrc'
+alias ll='ls -lh'
+alias lla='ll -a'
+alias la='ls -a'
+alias svnstm='svn st | grep -v "^X" | grep -v "^Perf" | grep -v "^\?" | uniq'
+alias svnst='svn st --ignore-externals | grep -v "^X"'
+alias rgrep='grep -R -n --exclude=*.swp --exclude-dir=.svn'
+alias ......='cd ../../../../..'
+alias .....='cd ../../../..'
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias hadoop="/usr/lib/hadoop-0.20/bin/hadoop"
+alias hdfs='hadoop dfs'
+alias deploy='screen -x rapleaf/deploy'
+alias quickload="top -b -n1 | head -n1 | awk '{print $12, $13, $14}'"
 
 command -v time >/dev/null 2>&1 && alias time='command time'
