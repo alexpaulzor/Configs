@@ -13,7 +13,7 @@ set autoindent             " Automatically indent next line
 if has('smartindent')
    set smartindent            " Indent next line based on current line
 endif
-"set linebreak             " Display long lines wrapped at word boundaries
+set linebreak             " Display long lines wrapped at word boundaries
 set incsearch              " Enable incremental searching
 set hlsearch               " Highlight search matches
 set ignorecase             " Ignore case when searching...
@@ -34,6 +34,7 @@ set noerrorbells           " Disable error bells
 set visualbell             " Turn visual bell on
 set t_vb=                  " Make the visual bell emit nothing
 set showcmd                " Show the current command
+set noswapfile
 
 set diffopt+=iwhite
 

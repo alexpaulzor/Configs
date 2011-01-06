@@ -68,4 +68,6 @@ main = do
 			, ("M-s", moveTo Next EmptyWS)
 			, ("M-S-s", shiftTo Next EmptyWS)
 			, ("M-S-l", spawn "xscreensaver-command -lock")
+			, ("M-<Page_Up>", spawn "amixer sset Master 5%+")
+			, ("M-<Page_Down>", spawn "amixer sset Master 5%-")
 			]
