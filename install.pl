@@ -13,9 +13,6 @@ use File::Path qw(mkpath rmtree);
 use File::Glob ':glob';
 use Cwd 'cwd';
 
-# For aurvote
-my $auruser = "alexpaulzor";
-
 my $scriptdir = cwd() . '/' . $0;
 $scriptdir    =~ s{/ [^/]+ $}{}x;
 

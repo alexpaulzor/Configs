@@ -1,11 +1,17 @@
 #!/bin/zsh
-
-
 here=`dirname $0`
+force=""
+while [ -n "$1" ]; do
+    if [ "$1" = "-f" ]; then
+        force="true"
+    fi
+    shift
+done
 
-# installfile(srcfile, dstfile)
+# installfile(srcfile, dstfile[, filtercmd])
 installfile()
 {
+    mkdir -p $(dirname "$2")
     if [ -e $2 ]; then
         changes=`diff $2 $1`
         if [ -z "$changes" ]; then
@@ -30,14 +36,27 @@ installfile()
 installfile "$here/inittab" "/etc/inittab" 
 installfile "$here/mirrorlist" "/etc/pacman.d/mirrorlist" 
 installfile "$here/pacman.conf" "/etc/pacman.conf" 
-tfile=`mktemp`
-#TODO: ask for hostname
-installfile "$here/rc.conf" "/etc/rc.conf" 
-#TODO: ask for aurvote un/pw, create ~/.config/aurvote
+if [ ! -e "/etc/rc.conf" -o "$force" ]; then
+    tmpfile=$(mktemp)
+    read "hostname?Hostname: "
+    sed -e "s/%_HOSTNAME%/$hostname/g" < "$here/rc.conf" > "$tmpfile"
+    installfile "$tmpfile" "/etc/rc.conf"
+    rm -f "$tmpfile"
+fi
 
-pacman -Syu
-pacman -S --needed yaourt
+if [ ! -e "$HOME/.config/aurvote" -o "$force" ]; then
+    read "aurun?AUR username: "
+    read -s "aurpw?AUR password: "
+    tmpfile=$(mktemp)
+    echo "user=$aurun\npass=$aurpw" > "$tmpfile"
+    installfile "$tmpfile" "$HOME/.config/aurvote"
+    rm -f "$tmpfile"
+fi
+
+pacman -Syua --noconfirm
+pacman -S --needed --noconfirm yaourt
 installfile "$here/yaourtrc" "/etc/yaourtrc" 
+#TODO: generate packages.list from current install
 yaourt -S --noconfirm --needed --aur `cat $here/packages.list`
 
 
