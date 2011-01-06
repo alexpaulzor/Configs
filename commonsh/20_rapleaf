@@ -1,0 +1,43 @@
+
+# A common rapleaf environment
+# This should be called from .bashrc
+# for rapleaf and anyone in the rapleaf group
+umask 002
+
+export RAPREDUCE_LIB=/apps/rapreduce/current/lib
+export RAPREDUCE_APPS=/apps/rapreduce_apps/current/rapreduce
+export JAVA_HOME=/usr/java/latest
+export SVN=https://svn.vpn.rapleaf.com/main
+export RAP=$SVN/rapleaf.com
+export SVN_EDITOR=/usr/bin/vim
+export JARS_HOME=/apps/jars/current
+export NFS=/var/nfs/mounts
+export ANT_HOME=/usr/local/apache-ant-1.8.1
+
+# The TF cluster is special because of the Hadoop RPMS
+# it doesn't need these variables
+#if  [ ! `hostname -s | grep -e "^tf[0-9]" -e "^tf-*" -e "ds*"` ]; then
+#	export HADOOP_HOME=/apps/hadoop
+#	export HADOOP_CONF_DIR=$HADOOP_HOME/conf
+#fi
+
+# set the mysql prompt.  note setting it in the .my.cnf doesn't
+# work right because \h (hostname) evaluates to 'localhost'
+export MYSQL_PS1="\u@$HOST> "
+
+# do not save duplicates in history and do not save
+# command that start with a space
+export HISTCONTROL=ignoreboth
+
+# path of ec2 api tools
+export EC2_HOME=/usr/local/ec2-api-tools-1.3-51254
+export AWS_ELB_HOME=/usr/local/ec2-lb-api-tools-1.0.9.3
+export AWS_CLOUDWATCH_HOME=/usr/local/ec2-cloud-watch-1.0.2.3
+export EC2_PRIVATE_KEY=/apps/deploy/figg/figg_private/ssl_certs/ec2/pk-5PMKTJNKMRGAISJ7GHMDT2PQQHD4O6AQ.pem
+export EC2_CERT=/apps/deploy/figg/figg_private/ssl_certs/ec2/cert-5PMKTJNKMRGAISJ7GHMDT2PQQHD4O6AQ.pem
+
+# We put NFS bin first so we can hijack some things like 'exit' and 'crontab'
+# We put sbins in our path so we can just type 'sudo lsof...'
+export PATH=/var/nfs/mounts/bin:$PATH:/usr/kerberos/sbin:/usr/local/sbin:/sbin:/usr/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin:$EC2_HOME/bin:$AWS_ELB_HOME/bin:$ANT_HOME/bin:$AWS_CLOUDWATCH_HOME/bin
+export LD_LIBRARY_PATH=/usr/local/BerkeleyDB.4.7/lib:/var/nfs/mounts/files/software/yourkit/yjp-current/bin/linux-x86-64:/usr/local/lib:$JAVA_HOME/jre/lib/amd64/server:/apps/hadoop/build/libhdfs:/usr/local/lib/ruby/gems/1.8/gems/thrift-0.2.5/lib
+export rapsvn="https://svn.vpn.rapleaf.com/main"
