@@ -70,4 +70,6 @@ main = do
 			, ("M-S-l", spawn "xscreensaver-command -lock")
 			, ("M-<Page_Up>", spawn "amixer sset Master 5%+")
 			, ("M-<Page_Down>", spawn "amixer sset Master 5%-")
+			, ("M-c", spawn "xclip -o | xclip -i -selection clipboard")
+			, ("M-v", spawn "xclip -selection clipboard -o | xclip -i && xdotool key 'shift+Insert'")
 			]
