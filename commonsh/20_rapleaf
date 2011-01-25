@@ -12,7 +12,6 @@ export RAP=$SVN/rapleaf.com
 export SVN_EDITOR=/usr/bin/vim
 export JARS_HOME=/apps/jars/current
 export NFS=/var/nfs/mounts
-export ANT_HOME=/usr/local/apache-ant-1.8.1
 
 # The TF cluster is special because of the Hadoop RPMS
 # it doesn't need these variables

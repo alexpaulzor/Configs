@@ -118,7 +118,6 @@ alias ...='cd ../..'
 alias ..='cd ..'
 alias hadoop="/usr/lib/hadoop-0.20/bin/hadoop"
 alias hdfs='hadoop dfs'
-alias deploy='screen -x rapleaf/deploy'
 alias quickload="top -b -n1 | head -n1 | awk '{print $12, $13, $14}'"
 alias less='/usr/share/vim/vim73/macros/less.sh'
 
