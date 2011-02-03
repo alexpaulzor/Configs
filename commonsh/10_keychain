@@ -1,0 +1,17 @@
+### AGENTS
+###
+# determines if a program is in our PATH
+have()
+{
+    which $1 &> /dev/null
+    return $?
+}
+if (have keychain); then
+    # only ask for passwords if interactive shell
+    case "$-" in
+        *i*) keychain --timeout 60 -q id_rsa ;;
+        *) keychain -q ;;
+    esac
+    [ -f ~/.keychain/`hostname`-sh ] && source ~/.keychain/`hostname`-sh
+    [ -f ~/.keychain/`hostname`-sh-gpg ] && source ~/.keychain/`hostname`-sh-gpg
+fi
