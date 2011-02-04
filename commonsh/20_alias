@@ -90,6 +90,12 @@ fi
 if command -v ack-grep >/dev/null 2>&1 ; then
 	alias ack=ack-grep
 fi
+if [ $(grep --help | grep '--exclude-dir') ]; then
+	alias rgrep='grep -R -n --exclude=*.swp --exclude=.svn --exclude-dir=.svn'
+else
+	alias rgrep='grep -R -n --exclude=*.swp --exclude=.svn'
+fi
+
 
 alias rm='rm -ir'
 alias df='df -h'
@@ -110,14 +116,11 @@ alias lla='ll -a'
 alias la='ls -a'
 alias svnstm='svn st | grep -v "^X" | grep -v "^Perf" | grep -v "^\?" | uniq'
 alias svnst='svn st --ignore-externals | grep -v "^X"'
-alias rgrep='grep -R -n --exclude=*.swp --exclude-dir=.svn'
 alias ......='cd ../../../../..'
 alias .....='cd ../../../..'
 alias ....='cd ../../..'
 alias ...='cd ../..'
 alias ..='cd ..'
-alias hadoop="/usr/lib/hadoop-0.20/bin/hadoop"
-alias hdfs='hadoop dfs'
 alias quickload="top -b -n1 | head -n1 | awk '{print $12, $13, $14}'"
 alias less='/usr/share/vim/vim73/macros/less.sh'
 

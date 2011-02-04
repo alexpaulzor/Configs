@@ -1,9 +1,17 @@
+#!/bin/sh
 xsetroot -cursor_name left_ptr
+setterm -blank 0 -powersave off -powerdown 0
+xset s off
+xset -dpms
+vncserver :0 &
 dropboxd &
 pidgin &
 xscreensaver &
-if [ "$1" = "xfce4" ]; then
-    exec xfce4-session
-else
+if [ -d "$HOME/.$(hostname)" -a -x "$HOME/.$(hostname)/xinitrc" ]; then
+    . "$HOME/.$(hostname)/xinitrc"
+fi
+if [ "$1" = "xmonad" ]; then
     exec xmonad
+else
+    exec xfce4-session
 fi

@@ -41,33 +41,42 @@ unless(eval {symlink('', ''); 1;}) {
 
 my %links = (
 	'bin/findbig' => 'bin/findbig',
+	'bin/findpac.py' => 'bin/findpac.py',
 	'bin/git-info' => 'bin/git-info',
 	'bin/nukeline' => 'bin/nukeline',
 	'bin/svnup' => 'bin/svnup',
+	'bash' => '.bash',
+	'bash_profile' => '.bash_profile',
+	'bashrc' => '.bashrc',
+	'commonsh' => '.commonsh',
+	'dir_colors' => '.dir_colors',
+	'gemrc' => '.gemrc',
+	'gitconfig' => '.gitconfig',
+	'gitignore' => '.gitignore',
+	'inputrc' => '.inputrc',
+	'irbrc' => '.irbrc',
+	'lessfilter' => '.lessfilter',
+	'mkshrc' => '.mkshrc',
+	'screenrc' => '.screenrc',
+	'shinit' => '.shinit',
+	'sshconfig' => ".ssh/config",
+	'vim' => '.vim',
+	'vimrc' => '.vimrc',
+	'Xdefaults' => '.Xdefaults',
+	'xinitrc' => '.xinitrc',
+	'xmobarrc' => '.xmobarrc',
 	'xmonad.hs' => '.xmonad/xmonad.hs',
-	bash => '.bash',
-	bash_profile => '.bash_profile',
-	bashrc => '.bashrc',
-	commonsh => '.commonsh',
-	dir_colors => '.dir_colors',
-	gitconfig => '.gitconfig',
-	gitignore => '.gitignore',
-	inputrc => '.inputrc',
-	irbrc => '.irbrc',
-	lessfilter => '.lessfilter',
-	mkshrc => '.mkshrc',
-	screenrc => '.screenrc',
-	shinit => '.shinit',
-	sshconfig => ".ssh/config",
-	vim => '.vim',
-	vimrc => '.vimrc',
-	Xdefaults => '.Xdefaults',
-	xinitrc => '.xinitrc',
-	xmobarrc => '.xmobarrc',
-	Xresources => '.Xresources',
-	zsh => '.zsh',
-	zshrc => '.zshrc'
+	'Xresources' => '.Xresources',
+	'xscreensaver' => '.xscreensaver',
+	'zsh' => '.zsh',
+	'zshrc' => '.zshrc'
 );
+
+my $hostname = `hostname`;
+chomp($hostname);
+if ( -d "$scriptdir/machines/$hostname" ) {
+	$links{"machines/$hostname"} = ".$hostname";
+}
 
 my $contained = (substr $scriptdir, 0, length($home)) eq $home;
 my $prefix = undef;
