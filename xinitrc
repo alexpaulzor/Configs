@@ -3,7 +3,7 @@ xsetroot -cursor_name left_ptr
 setterm -blank 0 -powersave off -powerdown 0
 xset s off
 xset -dpms
-vncserver :0 &
+x11vnc -display :0 &
 dropboxd &
 pidgin &
 xscreensaver &
