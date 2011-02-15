@@ -23,7 +23,7 @@ ABS_REPO=(testing core extra community-testing community gnome-unstable kde-unst
 #AURSEARCH=1
 AURSEARCH=0
 #AURUPGRADE=0
-#AURVOTE=1
+AURVOTE=0
 
 # Build
 #EXPORT=0           # Export to 1: EXPORTDIR or PKGDEST
