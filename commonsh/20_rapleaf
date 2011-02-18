@@ -37,7 +37,7 @@ export EC2_CERT=/apps/deploy/figg/figg_private/ssl_certs/ec2/cert-5PMKTJNKMRGAIS
 
 # We put NFS bin first so we can hijack some things like 'exit' and 'crontab'
 # We put sbins in our path so we can just type 'sudo lsof...'
-export PATH=/var/nfs/mounts/bin:$PATH:/usr/kerberos/sbin:/usr/local/sbin:/sbin:/usr/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin:$EC2_HOME/bin:$AWS_ELB_HOME/bin:$ANT_HOME/bin:$AWS_CLOUDWATCH_HOME/bin
+export PATH=/var/nfs/mounts/bin:$PATH:/usr/kerberos/sbin:/usr/local/sbin:/sbin:/usr/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin:$EC2_HOME/bin:$AWS_ELB_HOME/bin:$ANT_HOME/bin:$AWS_CLOUDWATCH_HOME/bin:/opt/ruby-enterprise/bin:/opt/ruby-enterprise/lib/ruby/gems/1.8/bin
 export LD_LIBRARY_PATH=/usr/local/BerkeleyDB.4.7/lib:/var/nfs/mounts/files/software/yourkit/yjp-current/bin/linux-x86-64:/usr/local/lib:$JAVA_HOME/jre/lib/amd64/server:/apps/hadoop/build/libhdfs:/usr/local/lib/ruby/gems/1.8/gems/thrift-0.2.5/lib
 export rapsvn="https://svn.vpn.rapleaf.com/main"
 
