@@ -10,8 +10,8 @@ xscreensaver &
 if [ -d "$HOME/.$(hostname)" -a -x "$HOME/.$(hostname)/xinitrc" ]; then
     . "$HOME/.$(hostname)/xinitrc"
 fi
-if [ "$1" = "xmonad" ]; then
-    exec xmonad
-else
+if [ "$1" = "xfce4" ]; then
     exec xfce4-session
+else
+    exec xmonad
 fi

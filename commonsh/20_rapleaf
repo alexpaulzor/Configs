@@ -43,3 +43,4 @@ export rapsvn="https://svn.vpn.rapleaf.com/main"
 
 alias hadoop="/usr/lib/hadoop-0.20/bin/hadoop"
 alias hdfs='hadoop dfs'
+alias pw='ssh rapmaster "sudo cat /apps/deploy/figg/figg_private/misc_passwds"'
