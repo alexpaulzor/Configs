@@ -1,8 +1,0 @@
-#!/bin/sh
-xrandr | grep 'VGA1 connected' &> /dev/null
-if [ $? ]; then
-    xrandr --output LVDS1 --off --output TV1 --off --output VGA1 --mode 1920x1080 --pos 0x0 --rotate normal
-else
-    xrandr --output LVDS1 --mode 1280x800 --pos 0x0 --rotate normal --output TV1 --off --output VGA1 --off
-fi
- #   xrandr --output LVDS1 --mode 1280x800 --pos 1680x250 --rotate normal --output TV1 --off --output VGA1 --mode 1680x1050 --pos 0x0 --rotate normal

@@ -1,17 +1,17 @@
-### AGENTS
-###
-# determines if a program is in our PATH
-have()
-{
-    which $1 &> /dev/null
-    return $?
-}
-if (have keychain); then
-    # only ask for passwords if interactive shell
-    case "$-" in
-        *i*) keychain --timeout 60 -q id_rsa ;;
-        *) keychain -q ;;
-    esac
-    [ -f ~/.keychain/`hostname`-sh ] && source ~/.keychain/`hostname`-sh
-    [ -f ~/.keychain/`hostname`-sh-gpg ] && source ~/.keychain/`hostname`-sh-gpg
+#!/bin/sh
+if [ ! -x $(which gpg-agent) ]; then
+    return
 fi
+
+# Start the GnuPG agent and enable OpenSSH agent emulation
+gnupginf="${HOME}/.gnupg/gpg-agent.info"
+
+if pgrep -u "${USER}" gpg-agent >/dev/null 2>&1; then
+    eval $(cat $gnupginf)
+    eval $(cut -d= -f1 $gnupginf | xargs echo export)
+else
+    eval $(gpg-agent --enable-ssh-support --daemon --write-env-file ${gnupginf})
+fi
+
+GPG_TTY=$(tty)
+export GPG_TTY

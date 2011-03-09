@@ -3,9 +3,6 @@
 # install.pl
 # script to create symlinks from the checkout of davesdots to the home directory
 
-#TODO: ask un/pw for gmail in xmobarrc
-
-
 use strict;
 use warnings;
 
@@ -53,6 +50,7 @@ my %links = (
 	'gemrc' => '.gemrc',
 	'gitconfig' => '.gitconfig',
 	'gitignore' => '.gitignore',
+	'gpg-agent.conf' => '.gnupg/gpg-agent.conf',
 	'inputrc' => '.inputrc',
 	'irbrc' => '.irbrc',
 	'lessfilter' => '.lessfilter',
