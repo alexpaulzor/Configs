@@ -4,7 +4,6 @@ setterm -blank 0 -powersave off -powerdown 0
 xset s off
 xset -dpms
 x11vnc -display :0 &
-dropboxd &
 pidgin &
 xscreensaver &
 if [ "$1" = "xfce4" ]; then
