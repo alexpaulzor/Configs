@@ -40,6 +40,7 @@ my %links = (
 	'bin/findbig' => 'bin/findbig',
 	'bin/findpac.py' => 'bin/findpac.py',
 	'bin/git-info' => 'bin/git-info',
+	'bin/ipmicmd' => 'bin/ipmicmd',
 	'bin/nmgui' => 'bin/nmgui',
 	'bin/svnup' => 'bin/svnup',
 	'bash' => '.bash',

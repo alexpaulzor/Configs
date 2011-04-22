@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+pwfile="$HOME/.config/ipmi_passwd"
+if [ ! -r "$pwfile" ]; then
+    read -s "ipmipw?Enter ipmi password:"
+    echo "$ipmipw" > $pwfile
+else
+    ipmipw="$(cat $pwfile)"
+fi
+
+if [ $# -eq 0 ]; then
+    echo "usage: ${0} <host> <command> [params...]"
+    exit 1
+fi
+
+exec ipmitool -I lanplus -H $1-console -U root -P "$ipmipw" $2 $3 $4 $5 $6 $7
