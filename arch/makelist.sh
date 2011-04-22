@@ -1,9 +1,11 @@
 #!/bin/zsh
+Install group base-devel [y/N]: yInstall group base [y/N]: yInstall group multilib-devel [y/N]: 
+Install group gnome-extra [y/N]: 
+Install group xfce4 [y/N]: yInstall group gnome [y/N]: nInstall group gstreamer0.10-plugins [y/N]: yInstall group ladspa-plugins [y/N]: nInstall group xfce4-goodies [y/N]: yInstall group xorg-drivers [y/N]: yInstall group xorg [y/N]: yInstall group xorg-apps [y/N]: yInstall group xorg-fonts [y/N]: y
+whitegroups="base-devel base xfce4 gstreamer0.10-plugins xorg xorg-drivers xorg-apps xorg-fonts"
+blackgroups="multilib-devel gnome-extra gnome ladspa-plugins"
 
-whitegroups="base base-devel multilib-devel xfce4 xfce4-goodies xorg-input-drivers xorg-video-drivers xorg"
-blackgroups="gnome gstreamer0.10-plugins ladspa-plugins gnome-extra"
-
-rm -f packages.list ignore.list
+rm -f packages.list
 # figure out which groups to install
 yaourt -Qga --date > groups.list
 cat groups.list | while read group; do
