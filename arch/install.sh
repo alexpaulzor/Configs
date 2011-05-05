@@ -18,3 +18,6 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm yaourt
 
 yaourt -S --needed --aur $(cat $here/packages.list | tr "\n" " ")
+
+echo "Now, update sessions in /etc/slim.conf"
+

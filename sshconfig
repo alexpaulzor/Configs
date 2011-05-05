@@ -1,2 +1,14 @@
+Host ds*
+User root
+
+Host switch*
+User root
+
+Host directory
+User root
+
+Host *
+User apaul
+
 GSSAPIAuthentication yes
 GSSAPIDelegateCredentials yes
