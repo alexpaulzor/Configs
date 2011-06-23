@@ -1,6 +1,6 @@
 #!/bin/zsh
-#whitegroups="base-devel base xfce4 gstreamer0.10-plugins xorg xorg-drivers xorg-apps xorg-fonts"
-#blackgroups="multilib-devel gnome-extra gnome ladspa-plugins"
+whitegroups="base-devel base xfce4 gstreamer0.10-plugins xorg xorg-apps xorg-fonts"
+blackgroups="multilib-devel gnome-extra gnome ladspa-plugins"
 
 rm -f packages.list
 # figure out which groups to install
