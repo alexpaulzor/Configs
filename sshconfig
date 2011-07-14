@@ -12,3 +12,4 @@ User apaul
 
 GSSAPIAuthentication yes
 GSSAPIDelegateCredentials yes
+StrictHostKeyChecking no
