@@ -90,13 +90,8 @@ fi
 if command -v ack-grep >/dev/null 2>&1 ; then
 	alias ack=ack-grep
 fi
-grep --help | grep "exclude-dir" &> /dev/null
-if [ $? ]; then
-	alias rgrep='grep -R -n --exclude=*.swp --exclude=.svn --exclude-dir=.svn'
-else
-	alias rgrep='grep -R -n --exclude=*.swp --exclude=.svn'
-fi
 
+alias rgrep='grep -R -n --exclude=*.swp --exclude=.svn'
 
 alias rm='rm -ir'
 alias df='df -h'
@@ -123,5 +118,7 @@ alias ....='cd ../../..'
 alias ...='cd ../..'
 alias ..='cd ..'
 alias quickload="top -b -n1 | head -n1 | awk '{print $12, $13, $14}'"
+alias dp='ssh rapmaster -t "screen -x rapleaf-deployer/deploy2"'
+alias fp='ssh rapmaster "sudo su - rapleaf -c \"cd /apps/deploy/figg/figg_private\""'
 
 command -v time >/dev/null 2>&1 && alias time='command time'
