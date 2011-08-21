@@ -4,10 +4,11 @@ setterm -blank 0 -powersave off -powerdown 0
 xset s off
 xset -dpms
 #x11vnc -display :0 &
-pidgin &
+#pidgin &
 xscreensaver &
-if [ "$1" = "xfce4" ]; then
-    exec xfce4-session
-else
+start-pulseaudio-x11
+if [ "$1" = "xmonad" ]; then
     exec xmonad
+else
+    exec xfce4-session
 fi
