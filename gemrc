@@ -3,7 +3,6 @@
 :bulk_threshold: 1000
 :sources: 
 - http://gemserver.rapleaf.com/NewRubyGems
-- http://gemserver.rapleaf.com/NewRubyGems/
 :backtrace: false
 :benchmark: false
 :verbose: true
