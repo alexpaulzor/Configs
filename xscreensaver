@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.12 for apaul on Tue Feb  1 09:58:21 2011.
+# Written by xscreensaver-demo 5.14 for apaul on Wed Aug 24 14:37:11 2011.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	0:05:00
@@ -25,6 +25,7 @@ captureStderr:	True
 ignoreUninstalledPrograms:False
 font:		*-medium-r-*-140-*-m-*
 dpmsEnabled:	False
+dpmsQuickOff:	False
 dpmsStandby:	2:00:00
 dpmsSuspend:	2:00:00
 dpmsOff:	4:00:00
@@ -36,7 +37,7 @@ imageDirectory:	/home/apaul
 mode:		random
 selected:	143
 
-textMode:	file
+textMode:	date
 textLiteral:	XScreenSaver
 textFile:	
 textProgram:	fortune
@@ -248,10 +249,8 @@ pointerPollTime:    0:00:05
 pointerHysteresis:  10
 windowCreationTimeout:0:00:30
 initialDelay:	0:00:00
-sgiSaverExtension:  True
-xidleExtension:	True
 GetViewPortIsFullOfLies:False
 procInterrupts:	True
-xinputExtensionDev: True
+xinputExtensionDev: False
 overlayStderr:	True
 

@@ -39,6 +39,7 @@ unless(eval {symlink('', ''); 1;}) {
 my %links = (
 	'bin/findbig' => 'bin/findbig',
 	'bin/findpac.py' => 'bin/findpac.py',
+	'bin/junipernc' => 'bin/junipernc',
 	'bin/git-info' => 'bin/git-info',
 	'bin/ipmicmd' => 'bin/ipmicmd',
 	'bin/nmgui' => 'bin/nmgui',
