@@ -2,9 +2,6 @@
 # Modified by Majnematic
 # Modified by Alex Paul
 
-#backslash > C-a
-escape \\\\
-
 # default scrollback to 5000 lines
 defscrollback 5000
 
