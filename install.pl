@@ -44,6 +44,7 @@ my %links = (
 	'bin/ipmicmd' => 'bin/ipmicmd',
 	'bin/nmgui' => 'bin/nmgui',
 	'bin/svnup' => 'bin/svnup',
+	'bin/reptyr' => 'bin/reptyr',
 	'bash' => '.bash',
 	'bash_profile' => '.bash_profile',
 	'bashrc' => '.bashrc',
