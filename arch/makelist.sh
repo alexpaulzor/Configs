@@ -11,6 +11,7 @@ cat groups.list | while read group; do
             addgroup="y"
         else
             read -q "addgroup?Install group $group [y/N]: "
+            echo
         fi
         if [ "$addgroup" = "y" ]; then
             yaourt -Sg $group | grep -o '^[^ ]* ' > $group.list
