@@ -45,6 +45,7 @@ my %links = (
 	'bin/nmgui' => 'bin/nmgui',
 	'bin/svnup' => 'bin/svnup',
 	'bin/reptyr' => 'bin/reptyr',
+	'bin/autodisper' => 'bin/autodisper',
 	'bash' => '.bash',
 	'bash_profile' => '.bash_profile',
 	'bashrc' => '.bashrc',

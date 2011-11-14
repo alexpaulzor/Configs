@@ -1,0 +1,16 @@
+#!/bin/bash
+
+olddisps=0
+while true; do
+  disps=$(nvidia-xconfig --query-gpu-info | grep 'Number of Display' | egrep -o '[0-9]*$')
+  if [ "$olddisps" != "$disps" ]; then
+    if [ "$disps" = "1" ]; then
+      disper -s
+    else
+      disper -e
+    fi
+  fi
+  sleep 1
+done
+
+
