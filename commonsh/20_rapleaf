@@ -28,11 +28,15 @@ export MYSQL_PS1="\u@$HOST> "
 # command that start with a space
 export HISTCONTROL=ignoreboth
 
+export HADOOP_HOME=/usr/lib/hadoop
+export HADOOP_CONF_DIR=$HADOOP_HOME/conf
+
 # We put NFS bin first so we can hijack some things like 'exit' and 'crontab'
 # We put sbins in our path so we can just type 'sudo lsof...'
-export PATH=/var/nfs/mounts/bin:$PATH:/usr/kerberos/sbin:/usr/local/sbin:/sbin:/usr/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin:$ANT_HOME/bin:$AWS_CLOUDWATCH_HOME/bin:/opt/ruby-enterprise/bin:/opt/ruby-enterprise/lib/ruby/gems/1.8/bin
+export PATH=/var/nfs/mounts/bin:$PATH:/usr/kerberos/sbin:/usr/local/sbin:/sbin:/usr/sbin:$HADOOP_HOME/bin:$JAVA_HOME/bin:$ANT_HOME/bin:$AWS_CLOUDWATCH_HOME/bin:/opt/ruby-enterprise/bin:/opt/ruby-enterprise/lib/ruby/gems/1.8/bin:$HADOOP_HOME/bin
 export rapsvn="https://svn.vpn.rapleaf.com/main"
 
 alias hadoop="/usr/lib/hadoop-0.20/bin/hadoop"
 alias hdfs='hadoop dfs'
 alias pw='ssh rapmaster "sudo cat /apps/deploy/figg/figg_private/misc_passwds"'
+
