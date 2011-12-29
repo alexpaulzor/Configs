@@ -8,8 +8,6 @@ Host directory
 User root
 
 Host *
-User apaul
-
 GSSAPIAuthentication yes
 GSSAPIDelegateCredentials yes
 StrictHostKeyChecking no
