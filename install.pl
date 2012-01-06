@@ -46,6 +46,7 @@ my %links = (
 	'bin/svnup' => 'bin/svnup',
 	'bin/reptyr' => 'bin/reptyr',
 	'bin/autodisper' => 'bin/autodisper',
+	'bin/inxi' => 'bin/inxi',
 	'bash' => '.bash',
 	'bash_profile' => '.bash_profile',
 	'bashrc' => '.bashrc',

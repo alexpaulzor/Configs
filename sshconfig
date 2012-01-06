@@ -1,15 +1,20 @@
 Host ds*
-User root
+    User root
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
+    StrictHostKeyChecking no
 
 Host switch*
-User root
+    User root
 
 Host directory
-User root
+    User root
+
+Host 10.98.*
+    User ec2-user
+    IdentityFile ~/.ssh/vpc_key.pem
 
 Host *
-User apaul
-
-GSSAPIAuthentication yes
-GSSAPIDelegateCredentials yes
-StrictHostKeyChecking no
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
+    StrictHostKeyChecking no
