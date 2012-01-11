@@ -8,6 +8,7 @@ xset -dpms
 xscreensaver &
 start-pulseaudio-x11
 if [ "$1" = "xmonad" ]; then
+    export AWT_TOOLKIT=MToolkit
     exec xmonad
 else
     exec xfce4-session

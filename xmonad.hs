@@ -42,6 +42,7 @@ main = do
 	xmproc <- spawnPipe "xmobar"
 	xmonad $ defaultConfig
 			{ manageHook = manageDocks <+> myManageHook
+			, startupHook = setWMName "LG3D"
 			, layoutHook = avoidStruts $ smartBorders $ myLayoutHook
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
