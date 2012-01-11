@@ -7,6 +7,7 @@ xset -dpms
 #pidgin &
 xscreensaver &
 start-pulseaudio-x11
+bin/autodisper &
 if [ "$1" = "xmonad" ]; then
     exec xmonad
 else

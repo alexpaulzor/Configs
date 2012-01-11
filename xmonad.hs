@@ -70,4 +70,5 @@ main = do
 			, ("M-<Page_Down>", spawn "amixer sset Master 5%-")
 			, ("M-c", spawn "xclip -o | xclip -i -selection clipboard")
 			, ("M-v", spawn "xclip -selection clipboard -o | xclip -i && xdotool key 'shift+Insert'")
+			, ("M-g", spawn "scrot -s")
 			]
