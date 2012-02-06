@@ -1,6 +1,6 @@
 #!/bin/zsh
-whitegroups="base-devel base xfce4 gstreamer0.10-plugins xorg xorg-apps xorg-fonts"
-blackgroups="multilib-devel gnome-extra gnome ladspa-plugins"
+whitegroups="base-devel base xfce4 gstreamer0.10-plugins xorg xorg-apps xorg-fonts xfce4-goodies"
+blackgroups="multilib-devel gnome-extra gnome ladspa-plugins xorg-drivers pulseaudio-gnome"
 
 list=$(hostname).list
 
@@ -24,6 +24,6 @@ cat groups.list | while read group; do
     fi
 done
 
-yaourt -Qea --date | grep -o '^[^ ]* ' | grep -v -F -f ignore.list | grep -o '[^/]* $' >> $list
+yaourt -Qea --date | grep -o '^[^ ]* ' | grep -v -F -f ignore.list | grep -o '[^/]* $' | grep -o '^[^ ]*' >> $list
 
 rm -f ignore.list groups.list

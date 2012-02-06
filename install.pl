@@ -70,6 +70,7 @@ my %links = (
 	'xmobarrc' => '.xmobarrc',
 	'xmonad.hs' => '.xmonad/xmonad.hs',
 	'Xresources' => '.Xresources',
+	'xbindkeysrc' => '.xbindkeysrc',
 	'xscreensaver' => '.xscreensaver',
 	'zsh' => '.zsh',
 	'zshrc' => '.zshrc'
