@@ -1,6 +1,6 @@
-Host ds*
+Host ds0*
     User root
-    GSSAPIAuthentication yes
+    GSSAPIAuthentication no
     GSSAPIDelegateCredentials yes
     StrictHostKeyChecking no
 
@@ -15,6 +15,6 @@ Host 10.98.*
     IdentityFile ~/.ssh/vpc_key.pem
 
 Host *
-    GSSAPIAuthentication yes
+    GSSAPIAuthentication no
     GSSAPIDelegateCredentials yes
     StrictHostKeyChecking no

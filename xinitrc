@@ -6,6 +6,7 @@ xset -dpms
 #x11vnc -display :0 &
 #pidgin &
 xscreensaver &
+xbindkeys
 start-pulseaudio-x11
 bin/autodisper &
 if [ "$1" = "xmonad" ]; then
