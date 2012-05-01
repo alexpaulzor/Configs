@@ -40,3 +40,9 @@ alias hadoop="/usr/lib/hadoop-0.20/bin/hadoop"
 alias hdfs='hadoop dfs'
 alias pw='ssh rapmaster "sudo cat /apps/deploy/figg/figg_private/misc_passwds"'
 
+dslist()
+{
+    for i in {$1..$2}; do
+        printf "ds%04d," $i
+    done
+}

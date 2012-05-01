@@ -12,7 +12,12 @@ Host directory
 
 Host 10.98.*
     User ec2-user
-    IdentityFile ~/.ssh/vpc_key.pem
+    IdentityFile ~/.ssh/cloudplayground.pem
+
+Host trapdoor-internal
+    User root
+    ProxyCommand ssh rapmaster nc %h %p
+    Compression yes
 
 Host *
     GSSAPIAuthentication no

@@ -53,7 +53,7 @@ endif
 if has('eval')
    fun! WideFold()
       if winwidth(0) > 90
-         setlocal foldcolumn=1
+         setlocal foldcolumn=0
       else
          setlocal foldcolumn=0
       endif

@@ -92,6 +92,7 @@ if command -v ack-grep >/dev/null 2>&1 ; then
 fi
 
 alias rgrep='grep -R -n --exclude=*.swp --exclude=.svn'
+alias igrep='grep -i'
 
 alias rm='rm -ir'
 alias df='df -h'

@@ -42,7 +42,6 @@ main = do
 	xmproc <- spawnPipe "xmobar"
 	xmonad $ defaultConfig
 			{ manageHook = manageDocks <+> myManageHook
-			, startupHook = setWMName "LG3D"
 			, layoutHook = avoidStruts $ smartBorders $ myLayoutHook
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
@@ -65,7 +64,7 @@ main = do
 			, ("M-S-<Up>", windows W.swapUp)
 			, ("M-<Down>", windows W.focusDown)
 			, ("M-S-<Down>", windows W.swapDown)
-			, ("M-S-l", spawn "xscreensaver-command -lock")
+			, ("M-S-l", spawn "(pgrep xscreensaver || xscreensaver & sleep 1); xscreensaver-command -lock")
 			, ("M-S-s", spawn "sudo pm-suspend-hybrid")
 			, ("M-<Page_Up>", spawn "amixer sset Master 5%+")
 			, ("M-<Page_Down>", spawn "amixer sset Master 5%-")

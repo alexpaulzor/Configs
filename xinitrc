@@ -5,7 +5,7 @@ xset s off
 xset -dpms
 #x11vnc -display :0 &
 #pidgin &
-xscreensaver &
+(while true; do xscreensaver; done) &
 xbindkeys
 start-pulseaudio-x11
 bin/autodisper &
