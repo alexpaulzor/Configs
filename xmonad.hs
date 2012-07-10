@@ -68,7 +68,7 @@ main = do
 			, ("M-S-s", spawn "sudo pm-suspend-hybrid")
 			, ("M-<Page_Up>", spawn "amixer sset Master 5%+")
 			, ("M-<Page_Down>", spawn "amixer sset Master 5%-")
-			, ("M-c", spawn "xclip -o | xclip -i -selection clipboard")
+			, ("M-c", spawn "xdotool key 'ctrl+c'; xclip -o | xclip -i -selection clipboard")
 			, ("M-v", spawn "xclip -selection clipboard -o | xclip -i && xdotool key 'shift+Insert'")
 			, ("M-g", spawn "scrot -s")
 			]
