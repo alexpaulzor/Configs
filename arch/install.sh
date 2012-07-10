@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # some prereqs
 sudo pacman -S --needed --noconfirm vim git zsh sudo
