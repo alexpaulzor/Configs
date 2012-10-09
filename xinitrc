@@ -7,6 +7,7 @@ xset -dpms
 #pidgin &
 (while true; do xscreensaver; done) &
 xbindkeys
+xmodmap .xmodmaprc
 start-pulseaudio-x11
 if [ "$1" = "xfce4" ]; then
     exec xfce4-session

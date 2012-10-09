@@ -10,6 +10,7 @@ import XMonad.Layout.NoBorders(smartBorders)
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
 
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeysP)
@@ -43,6 +44,7 @@ main = do
 	xmonad $ defaultConfig
 			{ manageHook = manageDocks <+> myManageHook
 			, layoutHook = avoidStruts $ smartBorders $ myLayoutHook
+			, startupHook = setWMName "LG3D"
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
 				, ppUrgent = xmobarColor "#CC0000" "" . wrap "**" "**"
