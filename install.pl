@@ -43,6 +43,7 @@ my %links = (
 	'bin/git-info' => 'bin/git-info',
 	'bin/ipmicmd' => 'bin/ipmicmd',
 	'bin/nmgui' => 'bin/nmgui',
+	'bin/stats.rb' => 'bin/stats.rb',
 	'bin/svnup' => 'bin/svnup',
 	'bin/reptyr' => 'bin/reptyr',
 	'bin/autodisper' => 'bin/autodisper',

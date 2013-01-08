@@ -19,6 +19,21 @@ Host trapdoor-internal
     ProxyCommand ssh rapmaster nc %h %p
     Compression yes
 
+Host citadel citadel.rapleaf.com
+    ProxyCommand none
+
+Host switch-*
+    User root
+    ProxyCommand ssh citadel nc -T "lowdelay" %h %p
+    IdentityFile ~/src/util/switches/switch_access_dsa
+    Compression yes
+
+Host firewall*
+    User rapleaf
+    ProxyCommand ssh citadel nc -T "lowdelay" %h %p
+    IdentityFile ~/src/util/switches/switch_access_dsa
+    Compression yes
+
 Host *
     GSSAPIAuthentication no
     GSSAPIDelegateCredentials yes

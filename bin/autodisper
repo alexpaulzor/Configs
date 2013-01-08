@@ -2,15 +2,16 @@
 
 olddisps=0
 while true; do
-  disps=$(nvidia-xconfig --query-gpu-info | grep 'Number of Display' | egrep -o '[0-9]*$')
+  disps=$(disper -l | grep 'display ' | wc -l)
   if [ "$olddisps" != "$disps" ]; then
-    if [ "$disps" = "1" ]; then
-      disper -s
-    else
+    if [ "$disps" = "2" ]; then
       disper -e
+    else
+      disper -s
     fi
+    olddisps="$disps"
   fi
-  sleep 1
+  sleep 2
 done
 
 
