@@ -1,0 +1,3 @@
+export RAILS_ENV=development
+alias newchef='cp ~/.chef/knife.rb.chef.new ~/.chef/knife.rb; cp ~/.chef/client.pem.chef.new ~/.chef/client.pem; cp ~/.chef/chef-validator.pem.chef.new ~/.chef/chef-validator.pem'
+alias oldchef='cp ~/.chef/knife.rb.chef.old ~/.chef/knife.rb; cp ~/.chef/client.pem.chef.old ~/.chef/client.pem; cp ~/.chef/chef-validator.pem.chef.old ~/.chef/chef-validator.pem'

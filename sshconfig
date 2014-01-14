@@ -34,6 +34,10 @@ Host firewall*
     IdentityFile ~/src/util/switches/switch_access_dsa
     Compression yes
 
+Host ops.aws.couchsurfing.com
+    User deploy
+    ForwardAgent yes
+
 Host *
     GSSAPIAuthentication no
     GSSAPIDelegateCredentials yes

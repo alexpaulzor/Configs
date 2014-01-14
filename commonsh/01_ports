@@ -1,9 +1,13 @@
 #! /bin/sh
 
-concat_manpath "/opt/local/man"
-concat_path "/opt/local/bin"
-concat_path "/opt/local/sbin"
-concat_path "/opt/local/libexec"
+#concat_manpath "/opt/local/man"
+#concat_path "/opt/local/bin"
+#concat_path "/opt/local/sbin"
+#concat_path "/opt/local/libexec"
 
 concat_path "${HOME}/homebrew/bin"
 concat_manpath "${HOME}/homebrew/share/man"
+
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+    source $HOME/.rvm/scripts/rvm;
+fi

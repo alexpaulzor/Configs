@@ -54,7 +54,6 @@ my %links = (
 	'commonsh' => '.commonsh',
 	'compiz.Default.ini' => '.config/compiz/compizconfig/Default.ini',
 	'dir_colors' => '.dir_colors',
-	'gemrc' => '.gemrc',
 	'gitconfig' => '.gitconfig',
 	'gitignore' => '.gitignore',
 	'gpg-agent.conf' => '.gnupg/gpg-agent.conf',
