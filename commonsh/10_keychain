@@ -1,8 +1,6 @@
 #!/bin/sh
 
-if [ -z "$(which gpg-agent 2>/dev/null)" ]; then
-    return
-fi
+which gpg-agent &>/dev/null || return
 
 # Start the GnuPG agent and enable OpenSSH agent emulation
 gnupginf="${HOME}/.gnupg/gpg-agent.info"

@@ -16,3 +16,5 @@ if [ -d "${HOME}/.bash" ] ; then
 		. "${file}"
 	done
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
