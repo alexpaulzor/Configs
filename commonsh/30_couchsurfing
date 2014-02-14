@@ -1,3 +1,12 @@
 export RAILS_ENV=development
 alias newchef='cp ~/.chef/knife.rb.chef.new ~/.chef/knife.rb; cp ~/.chef/client.pem.chef.new ~/.chef/client.pem; cp ~/.chef/chef-validator.pem.chef.new ~/.chef/chef-validator.pem'
 alias oldchef='cp ~/.chef/knife.rb.chef.old ~/.chef/knife.rb; cp ~/.chef/client.pem.chef.old ~/.chef/client.pem; cp ~/.chef/chef-validator.pem.chef.old ~/.chef/chef-validator.pem'
+
+
+export JAVA_HOME="$(/usr/libexec/java_home)"
+#export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
+#export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
+export EC2_AMITOOL_HOME="/usr/local/Cellar/ec2-ami-tools/1.4.0.9/libexec"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
+export AWS_ACCESS_KEY=AKIAI5PAMEOK4WNAGFAQ
+export AWS_SECRET_KEY=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

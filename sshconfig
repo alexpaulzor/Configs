@@ -1,44 +1,20 @@
-Host ds0*
-    User root
-    GSSAPIAuthentication no
-    GSSAPIDelegateCredentials yes
-    StrictHostKeyChecking no
-
-Host switch*
-    User root
-
-Host directory
-    User root
-
-Host 10.98.*
-    User ec2-user
-    IdentityFile ~/.ssh/cloudplayground.pem
-
-Host trapdoor-internal
-    User root
-    ProxyCommand ssh rapmaster nc %h %p
-    Compression yes
-
-Host citadel citadel.rapleaf.com
-    ProxyCommand none
-
-Host switch-*
-    User root
-    ProxyCommand ssh citadel nc -T "lowdelay" %h %p
-    IdentityFile ~/src/util/switches/switch_access_dsa
-    Compression yes
-
-Host firewall*
-    User rapleaf
-    ProxyCommand ssh citadel nc -T "lowdelay" %h %p
-    IdentityFile ~/src/util/switches/switch_access_dsa
-    Compression yes
+Host *
+    ServerAliveCountMax 3
+    ServerAliveInterval 10
+    TCPKeepAlive yes
 
 Host ops.aws.couchsurfing.com
     User deploy
     ForwardAgent yes
+    ServerAliveCountMax 3
+    ServerAliveInterval 10
+    TCPKeepAlive yes
 
-Host *
-    GSSAPIAuthentication no
-    GSSAPIDelegateCredentials yes
-    StrictHostKeyChecking no
+Host 192.168.0.40
+    User sylvain
+    ForwardAgent yes
+    ServerAliveCountMax 3
+    ServerAliveInterval 10
+    TCPKeepAlive yes
+
+
