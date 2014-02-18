@@ -8,5 +8,3 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 #export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
 export EC2_AMITOOL_HOME="/usr/local/Cellar/ec2-ami-tools/1.4.0.9/libexec"
 export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
-export AWS_ACCESS_KEY=AKIAI5PAMEOK4WNAGFAQ
-export AWS_SECRET_KEY=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
