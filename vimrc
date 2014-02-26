@@ -13,7 +13,7 @@ set autoindent             " Automatically indent next line
 if has('smartindent')
    set smartindent            " Indent next line based on current line
 endif
-set linebreak             " Display long lines wrapped at word boundaries
+set nolinebreak             " Display long lines wrapped at character boundaries
 set incsearch              " Enable incremental searching
 set hlsearch               " Highlight search matches
 set ignorecase             " Ignore case when searching...
@@ -154,6 +154,8 @@ else
       set list listchars=tab:>-,trail:.,extends:>
    endif
 endif
+
+set nolist
 
 if has('mouse')
    " Dont copy the listchars when copying
@@ -307,3 +309,6 @@ if has('eval')
 endif
 
 set t_RV=
+
+au BufNewFile,BufRead *.lib set syntax=php
+au BufNewFile,BufRead *.html set syntax=php
