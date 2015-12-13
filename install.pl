@@ -48,6 +48,7 @@ my %links = (
 	'bin/reptyr' => 'bin/reptyr',
 	'bin/autodisper' => 'bin/autodisper',
 	'bin/inxi' => 'bin/inxi',
+	'bin/gopro_rename.rb' => 'bin/gopro_rename.rb',
 	'bash' => '.bash',
 	'bash_profile' => '.bash_profile',
 	'bashrc' => '.bashrc',
