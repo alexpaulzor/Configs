@@ -1,9 +1,12 @@
+Host localhost
+    User alexpaul
+
 Host *
     ServerAliveCountMax 3
     ServerAliveInterval 10
     TCPKeepAlive yes
     ForwardAgent yes
-    User ubuntu
+    User apaul
     #ConnectTimeout 1
     StrictHostKeyChecking no
 

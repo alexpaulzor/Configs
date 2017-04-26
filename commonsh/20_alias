@@ -119,7 +119,12 @@ alias ....='cd ../../..'
 alias ...='cd ../..'
 alias ..='cd ..'
 alias quickload="top -b -n1 | head -n1 | awk '{print $12, $13, $14}'"
-alias dp='ssh rapmaster -t "screen -x rapleaf-deployer/deploy2"'
-alias fp='ssh rapmaster "sudo su - rapleaf -c \"cd /apps/deploy/figg/figg_private\""'
+alias sum="awk '{t+=\$1} END {print t}'"
+
+alias d4m-nfs='pushd ~/src/3rdparty/d4m-nfs; ./d4m-nfs.sh; popd'
+
+alias fixdocker="ps aux | grep -i docker | awk '{print \$2}' | xargs sudo kill; sleep 1; open /Applications/Docker.app; while ! docker ps; do sleep 1; echo -n .; done; d4m-nfs"
+alias cleandocker="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc:ro spotify/docker-gc"
+alias nukedocker="docker ps -aq | xargs docker rm -f; docker images -aq | xargs docker rmi -f"
 
 command -v time >/dev/null 2>&1 && alias time='command time'
