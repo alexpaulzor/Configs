@@ -98,7 +98,7 @@ alias rm='rm -ir'
 alias df='df -h'
 alias du='du -h'
 alias ping='ping -c4'
-alias cp='cp -ir'
+alias cp='cp -iR'
 alias mv='mv -i'
 alias rm='rm -ir'
 alias mkdir='mkdir -p'
@@ -126,5 +126,7 @@ alias d4m-nfs='pushd ~/src/3rdparty/d4m-nfs; ./d4m-nfs.sh; popd'
 alias fixdocker="ps aux | grep -i docker | awk '{print \$2}' | xargs sudo kill; sleep 1; open /Applications/Docker.app; while ! docker ps; do sleep 1; echo -n .; done; d4m-nfs"
 alias cleandocker="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc:ro spotify/docker-gc"
 alias nukedocker="docker ps -aq | xargs docker rm -f; docker images -aq | xargs docker rmi -f"
+alias docker-logs-truncate='docker ps -q | while read cid; do echo > $(docker inspect --format="{{.LogPath}}" $cid); done'
 
 command -v time >/dev/null 2>&1 && alias time='command time'
+alias git-branch-lasttouch='for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k --`\\t"$k";done | sort'

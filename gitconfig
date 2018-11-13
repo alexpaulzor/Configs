@@ -40,3 +40,5 @@
 	email = apaul@planet.com
 [branch]  
 	  autosetuprebase = always
+[gitreview]
+	remote = origin

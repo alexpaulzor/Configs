@@ -1,6 +1,9 @@
 Host localhost
     User alexpaul
 
+Host apaul.jump.gc.earth.planet.com
+    User ubuntu
+
 Host *
     ServerAliveCountMax 3
     ServerAliveInterval 10
