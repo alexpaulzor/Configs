@@ -4,7 +4,7 @@
 	st = status
 	co = checkout
 	di = diff --color-words
-	br = branch
+	br = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
 	move   = mv
 	ren    = mv
 	rename = mv

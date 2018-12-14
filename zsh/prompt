@@ -44,7 +44,7 @@ case "${TERM}" in
 		;;
 esac
 
-PROMPT=${RESETCOLOR}${CLOCKCOLOR}$'[%t]'${HOSTCOLOR}$'%n@'${LHOSTNAME}${BLACKCOLOR}':'${PATHCOLOR}$'%45<...<%~ %(?..'${RESETCOLOR}$'%1(j.'${JOBCOLOR}$'[%j].)%(?..'${ERRORCOLOR}$'[%?])'${BOLDERRORCOLOR}$')%(!.#.$) '${RESETCOLOR}
+PROMPT=${RESETCOLOR}${CLOCKCOLOR}$'[%*] '${HOSTCOLOR}$'%n@'${LHOSTNAME}${BLACKCOLOR}':'${PATHCOLOR}$'%45<...<%~ %(?..'${RESETCOLOR}$'%1(j.'${JOBCOLOR}$'[%j].)%(?..'${ERRORCOLOR}$'[%?])'${BOLDERRORCOLOR}$')%(!.#.$) '${RESETCOLOR}
 
 RPROMPT=
 # RPROMPT=${RESETCOLOR}$'%1(j.'${JOBCOLOR}$'[%j].)%(?..'${ERRORCOLOR}$'[%?])'${CLOCKCOLOR}$'[%t]'${RESETCOLOR}
