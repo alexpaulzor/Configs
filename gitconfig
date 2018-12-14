@@ -4,7 +4,8 @@
 	st = status
 	co = checkout
 	di = diff --color-words
-	br = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+	# br = for-each-ref --sort=committerdate refs/heads/ refs/remotes/origin --format='%(committerdate:short) %(refname:short)'
+	br = for-each-ref --sort=committerdate refs/heads/ refs/remotes/origin/ --format='%(committerdate:short) %(refname:short) %(*authoremail)'
 	move   = mv
 	ren    = mv
 	rename = mv
