@@ -2,3 +2,4 @@
 concat_path "${HOME}/bin"
 concat_path "${HOME}/sbin"
 concat_manpath "${HOME}/share/man"
+concat_path "/usr/local/sbin"
