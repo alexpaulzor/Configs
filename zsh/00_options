@@ -35,8 +35,8 @@ unsetopt HIST_BEEP         # really, stop beeping!
 unsetopt LIST_BEEP         # seriously, stop beeping!
 
 # history
-export HISTSIZE=1000
-export SAVEHIST=1000
+export HISTSIZE=10000000
+export SAVEHIST=10000000
 export HISTFILE="${HOME}/.zsh/.history"
 
 setopt SHARE_HISTORY

@@ -1,20 +1,15 @@
+Host localhost
+    User alexpaul
+
+Host apaul.jump.gc.earth.planet.com
+    User ubuntu
+
 Host *
     ServerAliveCountMax 3
     ServerAliveInterval 10
     TCPKeepAlive yes
-
-Host ops.aws.couchsurfing.com
-    User deploy
     ForwardAgent yes
-    ServerAliveCountMax 3
-    ServerAliveInterval 10
-    TCPKeepAlive yes
-
-Host 192.168.0.40
-    User sylvain
-    ForwardAgent yes
-    ServerAliveCountMax 3
-    ServerAliveInterval 10
-    TCPKeepAlive yes
-
+    User apaul
+    #ConnectTimeout 1
+    StrictHostKeyChecking no
 

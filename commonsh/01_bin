@@ -1,5 +1,8 @@
 #! /bin/sh
+concat_path "/usr/local/opt/python/libexec/bin"
 concat_path "${HOME}/bin"
 concat_path "${HOME}/sbin"
+concat_path "${HOME}/src/ops/dev_tools/bin"
+concat_path "/Applications/Sublime Text.app/Contents/SharedSupport/bin/"
 concat_manpath "${HOME}/share/man"
 concat_path "/usr/local/sbin"

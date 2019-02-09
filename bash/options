@@ -1,7 +1,7 @@
 # put history in .bash
 export HISTFILE="${HOME}/.bash/.history"
 
-export HISTSIZE=1000
+export HISTSIZE=10000000
 
 # ignore both duplicates and whitespace in history
 export HISTCONTROL=ignoreboth
