@@ -5,6 +5,12 @@ precmd()
 
 	termtitle=`print -P "%n@%m[%l]"`
 	title zsh "$termtitle"
+
+	if [ $timer ]; then
+	    timer_show=$(($SECONDS - $timer))
+	    export PROMPT=${RESETCOLOR}${CLOCKCOLOR}$'[%*]${PATHCOLOR}+${timer_show}s '${HOSTCOLOR}$'%n@'${LHOSTNAME}${BLACKCOLOR}':'${PATHCOLOR}$'%45<...<%~ %(?..'${RESETCOLOR}$'%1(j.'${JOBCOLOR}$'[%j].)%(?..'${ERRORCOLOR}$'[%?])'${BOLDERRORCOLOR}$')%(!.#.$) '${RESETCOLOR}
+	    unset timer
+	fi
 }
 
 preexec()
@@ -16,6 +22,9 @@ preexec()
 
 	# Prepend this string to the title.
 	termtitle=`print -P "%n@%m[%l]:"`
+
+	# Time the next command
+	timer=${timer:-$SECONDS}
 
 	case $cmd[1] in
 		fg)
@@ -75,4 +84,3 @@ function title
 		;;
 	esac
 }
-
