@@ -6,11 +6,7 @@ precmd()
 	termtitle=`print -P "%n@%m[%l]"`
 	title zsh "$termtitle"
 
-	if [ $timer ]; then
-	    timer_show=$(($SECONDS - $timer))
-	    export PROMPT=${RESETCOLOR}${CLOCKCOLOR}$'[%*]${PATHCOLOR}+${timer_show}s '${HOSTCOLOR}$'%n@'${LHOSTNAME}${BLACKCOLOR}':'${PATHCOLOR}$'%45<...<%~ %(?..'${RESETCOLOR}$'%1(j.'${JOBCOLOR}$'[%j].)%(?..'${ERRORCOLOR}$'[%?])'${BOLDERRORCOLOR}$')%(!.#.$) '${RESETCOLOR}
-	    unset timer
-	fi
+	timer_prompt
 }
 
 preexec()
