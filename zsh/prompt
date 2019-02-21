@@ -44,7 +44,19 @@ case "${TERM}" in
 		;;
 esac
 
-PROMPT=${RESETCOLOR}${CLOCKCOLOR}$'[%*] '${HOSTCOLOR}$'%n@'${LHOSTNAME}${BLACKCOLOR}':'${PATHCOLOR}$'%45<...<%~ %(?..'${RESETCOLOR}$'%1(j.'${JOBCOLOR}$'[%j].)%(?..'${ERRORCOLOR}$'[%?])'${BOLDERRORCOLOR}$')%(!.#.$) '${RESETCOLOR}
+timer_prompt() {
+	if [ $timer ]; then
+	    timer_show=$(($SECONDS - $timer))
+	    export PROMPT=${RESETCOLOR}${CLOCKCOLOR}$'[%*]${PATHCOLOR}+${timer_show}s '${HOSTCOLOR}$'%n@'${LHOSTNAME}${BLACKCOLOR}':'${PATHCOLOR}$'%45<...<%~ %(?..'${RESETCOLOR}$'%1(j.'${JOBCOLOR}$'[%j].)%(?..'${ERRORCOLOR}$'[%?])'${BOLDERRORCOLOR}$')%(!.#.$) '${RESETCOLOR}
+	    unset timer
+	fi
+}
 
-RPROMPT=
+timer=${timer:-$SECONDS}
+
+# PROMPT_START="${RESETCOLOR}${CLOCKCOLOR}$'[%*] '${HOSTCOLOR}$'%n@'${LHOSTNAME}${BLACKCOLOR}':'${PATHCOLOR}$'%45<...<%~ %(?..'${RESETCOLOR}$'%1(j.'${JOBCOLOR}$'[%j].)%(?..'${ERRORCOLOR}$'[%?"
+# PROMPT_END=" ])'${BOLDERRORCOLOR}$')%(!.#.$) '${RESETCOLOR}"
+# PROMPT=${PROMPT_BASE}
+
+# RPROMPT=
 # RPROMPT=${RESETCOLOR}$'%1(j.'${JOBCOLOR}$'[%j].)%(?..'${ERRORCOLOR}$'[%?])'${CLOCKCOLOR}$'[%t]'${RESETCOLOR}

@@ -5,6 +5,8 @@ precmd()
 
 	termtitle=`print -P "%n@%m[%l]"`
 	title zsh "$termtitle"
+
+	timer_prompt
 }
 
 preexec()
@@ -16,6 +18,9 @@ preexec()
 
 	# Prepend this string to the title.
 	termtitle=`print -P "%n@%m[%l]:"`
+
+	# Time the next command
+	timer=${timer:-$SECONDS}
 
 	case $cmd[1] in
 		fg)
@@ -75,4 +80,3 @@ function title
 		;;
 	esac
 }
-
