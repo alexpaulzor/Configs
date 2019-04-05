@@ -37,6 +37,7 @@ unless(eval {symlink('', ''); 1;}) {
 }
 
 my %links = (
+	'bin/gopro_rename.rb' => 'bin/gopro_rename.rb',
 	'bin/findbig' => 'bin/findbig',
 	'bin/findpac.py' => 'bin/findpac.py',
 	'bin/junipernc' => 'bin/junipernc',
