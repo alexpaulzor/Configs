@@ -36,7 +36,6 @@ set t_vb=                  " Make the visual bell emit nothing
 set showcmd                " Show the current command
 set noswapfile
 
-set diffopt+=iwhite
 
 " ---- Filetypes ----
 if has('syntax')

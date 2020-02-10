@@ -43,3 +43,7 @@
 	  autosetuprebase = always
 [gitreview]
 	remote = origin
+[diff]
+	tool = opendiff
+[difftool]
+	prompt = false

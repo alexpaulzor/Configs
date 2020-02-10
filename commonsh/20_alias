@@ -129,3 +129,22 @@ alias docker-logs-truncate='docker ps -q | while read cid; do echo > $(docker in
 alias prunedocker="docker system prune --volumes --all --force"
 command -v time >/dev/null 2>&1 && alias time='command time'
 alias git-branch-lasttouch='for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k --`\\t"$k";done | sort'
+
+alias getcert='echo | openssl s_client -servername NAME -connect'
+alias certdate='openssl x509 -noout -dates'
+
+alias mmaster='git fetch origin; git merge origin/master -m "MERGE: in origin/master"'
+alias watchdot='watch dot -O -Tpng -Tsvg'
+
+function checkcert() {
+	getcert $1:443 | certdate
+}
+
+gdate &>/dev/null || alias gdate=date
+function zdate() {
+    gdate -u -Iseconds -d "$1" | sed -e 's/[+-][:0-9]*$//'
+}
+
+function diffgroups() {
+	diff -y <(groups $1 | tr ' ' '\n') <(groups $2 | tr ' ' '\n')
+}
