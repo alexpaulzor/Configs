@@ -121,8 +121,6 @@ alias ..='cd ..'
 alias quickload="top -b -n1 | head -n1 | awk '{print $12, $13, $14}'"
 alias sum="awk '{t+=\$1} END {print t}'"
 
-alias d4m-nfs='pushd ~/src/3rdparty/d4m-nfs; ./d4m-nfs.sh; popd'
-
 alias cleandocker="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc:ro spotify/docker-gc"
 alias nukedocker="docker ps -aq | xargs docker rm -f; docker images -aq | xargs docker rmi -f"
 alias docker-logs-truncate='docker ps -q | while read cid; do echo > $(docker inspect --format="{{.LogPath}}" $cid); done'
@@ -142,9 +140,15 @@ function checkcert() {
 
 gdate &>/dev/null || alias gdate=date
 function zdate() {
-    gdate -u -Iseconds -d "$1" | sed -e 's/[+-][:0-9]*$//'
+    gdate -u -Iseconds -d "${1-now}" | sed -e 's/[+-][:0-9]*$//'
 }
 
 function diffgroups() {
 	diff -y <(groups $1 | tr ' ' '\n') <(groups $2 | tr ' ' '\n')
+}
+
+function make_gif() {
+	rm -f /tmp/palette.png $2
+	ffmpeg  -i "$1" -filter_complex "[0:v] palettegen" /tmp/palette.png
+	ffmpeg -i "$1" -i /tmp/palette.png -filter_complex "[0:v][1:v] paletteuse" "$2"
 }
